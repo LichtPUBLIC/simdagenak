@@ -1,0 +1,539 @@
+<div class="{{module_id_class}}">
+        <div class="box box-primary">
+            <div class="box-primary box">
+                <div class="box box-primary pad">
+                    <div class="table table-modules">
+                        <!-- Widget ID (each widget will need unique ID)-->
+                        <div class="jarviswidget jarviswidget2 jarviswidget-color-blueDark" id="wid-id-1"
+                             data-widget-editbutton="false">
+    
+                            <header class="">
+                                <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                <h2>Rekap Matriks</h2>
+                            </header>
+    
+                            <!-- widget div-->
+                            <div>
+    
+                                <!-- widget edit box -->
+                                <div class="jarviswidget-editbox">
+                                    <!-- This area used as dropdown edit box -->
+    
+                                </div>
+                                <!-- end widget edit box -->
+    
+                                <!-- widget content -->
+                                <div class="widget-body">
+                                    <div class="box">
+                                    
+                                            
+                                            <div style="margin-bottom:5px">
+                                               <!--  <button class="btn btn-success btTampilkan" id="tambah">
+                                                    <span>Tambah Data</span>
+                                                </button> -->
+                                                <!-- <button id="export-excel" class="btn  btn-primary">export excel</button> -->
+                                            </div>
+                                    
+
+                                    </div>
+                                    <!-- <div style="overflow-x: auto;"> -->
+                                    <div>
+                                        <table class="table table-striped table-bordered"
+                                           width="100%" id="rekap">
+                                        
+                                        </table>
+                                   
+                                        </div>
+                                   
+    
+                                </div>
+                                <!-- end widget content -->
+    
+                            </div>
+                            <!-- end widget div -->
+    
+                        </div>
+                        <!-- end widget -->
+                    </div>
+                </div>
+    
+            </div>
+            <div class="overlay">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Modal Petugas-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 50%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Detail Informasi</h4>
+            </div>
+           
+                <div class="modal-body ">
+                   <form id="form-input" class="form-input form-insert smart-form form-horizontal" novalidate="novalidate">    
+                   <fieldset>
+                                     
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Nama Lokasi</label>
+                                        <label class="label col col-md-7" id="lokasi_nama"></label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Instansi</label>
+                                        <label class="label col col-md-7" id="lokasi_instansi"></label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Nama PJ</label>
+                                        <label class="label col col-md-7" id="lokasi_namapj"></label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">No Telepon</label>
+                                        <label class="label col col-md-7" id="lokasi_telepon">
+                                                                                    </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Lokasi Kecamatan</label>
+                                        <label class="label col col-md-7" id=kecamatan>
+                                            
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Lokasi Desa</label>
+                                        <label class="label col col-md-7" id="desa">
+                                            
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Alamat</label>
+                                        <label class="label col col-md-7" id="lokasi_alamat">
+                                            
+                                        </label>
+                                    </section>
+                                   
+                                </div>
+                           
+                            
+                    </fieldset>
+                    <fieldset>
+                            <div class="row">
+                                <section class="col col-12">FIBER OPTIC</section></div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-5">Perangkat</label>
+                                    <label class="label col col-md-7" id="fo_namaperangkat">
+                                        
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label col col-md-5">to Bone</label>
+                                    <label class="label col col-md-7" id="fo_toBone">
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-5">Mac Address</label>
+                                    <label class="label col col-md-7" id="fo_macaddress">
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label col col-md-5">Btest Local</label>
+                                    <label class="label col col-md-7" id="fo_btestlocal">
+                                        
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-5">BTest Internet</label>
+                                    <label class="label col col-md-7" id="fo_btestinternet">
+                                        
+                                    </label>
+                                </section>
+                               
+                            </div>
+                        
+                    </fieldset>
+                    <fieldset>
+                                <div class="row">
+                                <section class="col col-12">WAN</section></div>       
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Jenis AP Outdoor</label>
+                                        <label class="label col col-md-7" id="wan_jenisapoutdor">
+                                            
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">to AP</label>
+                                        <label class="label col col-md-7" id="wan_toap">
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Mac Address</label>
+                                        <label class="label col col-md-7" id="wan_macaddress"> 
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Signal</label>
+                                        <label class="label col col-md-7" id="wan_signal" >
+                                            <input required type="text" name="wan_signal"   placeholder="Signal">
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Troughput</label>
+                                        <label class="label col col-md-7" id="wan_troughput">
+                                        
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">CCQ</label>
+                                        <label class="label col col-md-7" id="wan_ccq">
+                                        
+                                        </label>
+                                    </section>
+                                </div>
+                               
+                               
+                            
+                    </fieldset>
+                    <fieldset>
+                             <div class="row">
+                                <section class="col col-12">TOWER</section></div>                  
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-6">Jumlah Stage</label>
+                                    <label class="label col col-md-6"  id="tower_jumlahstage">
+                                        
+                                    </label>
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label col col-md-6">Kondisi Stage</label>
+                                    <label class="label col col-md-6" id="tower_kondisistage">
+                                        
+                                        
+                                    </label>
+                                    
+                                    
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-6">Kondisi Spaner</label>
+                                    <label class="label col col-md-6" id="tower_kondisispaner"></label>
+                                        
+                                
+                                </section>
+                                <section class="col col-6">
+                                    <label class="label col col-md-6">Kondisi Grounding</label>
+                                    <label class="label col col-md-6" id="tower_kondisigrounding">
+                                       </label>
+                                        
+                                    
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <label class="label col col-md-6">Kondisi Penangkal Petir</label>
+                                    <label class="label col col-md-6" id="tower_kondisipenangkalpetir">
+                                       </label>
+                                   
+                                </section>
+                                
+                            </div>
+                           
+                           
+                        
+                    </fieldset>
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-12">Wallmount Rack</section></div>        
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Tipe</label>
+                                <label class="label col col-md-7" id="wr_tipe" >
+                                    
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Kondisi</label>
+                                <label class="label col col-md-7" id="wr_kondisi" >
+                                    
+                                </label>
+                                
+                                
+                            </section>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="row">
+                        <section class="col col-12">POE/Adapter</section></div>        
+                        <div class="row">
+                            
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Kondisi</label>
+                                <label class="label col col-md-7" id="poe_kondisi" >
+                                    
+                                </label>
+                                
+                                
+                                
+                            </section>
+                        </div>
+                           
+                    </fieldset>
+                    <fieldset>
+                                 <div class="row">
+                        <section class="col col-12">Switch</section></div>              
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Jumlah/Port</label>
+                                        <label class="label col col-md-7" id="switch_jumlahport">
+                                            
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Seri</label>
+                                        <label class="label col col-md-7" id="switch_seri"> 
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Serial Number</label>
+                                        <label class="label col col-md-7" id="switch_serialnumber">
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Merk</label>
+                                        <label class="label col col-md-7" id="switch_merk">
+                                            
+                                        </label>
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="label col col-md-5">Kondisi</label>
+                                        <label class="label col col-md-7" id="switch_kondisi">
+                                            
+                                           
+                                        </label>
+                                        
+                                        
+                                    </section>
+                                   
+                                </div>
+                               
+                               
+                            
+                    </fieldset>
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-12">LAN</section>
+                        </div>                     
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Jenis</label>
+                                <label class="label col col-md-7"  id="lan_jenis">
+                                   
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Jumlah</label>
+                                <label class="label col col-md-7" id="lan_jumlah">  
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Aktif</label>
+                                <label class="label col col-md-7" id="lan_aktif"> 
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Pasif</label>
+                                <label class="label col col-md-7" id="lan_pasif">
+                                    
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Label</label>
+                                <label class="label col col-md-7" id="lan_label">
+                                    
+                                </label>
+                                
+                                
+                                
+                            </section>
+                           
+                        </div>
+                                   
+                                   
+                                
+                    </fieldset>     
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-12">Hotspot</section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Status</label>
+                                <label class="label col col-md-7" id="hotspot_status">  
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Seri RB</label>
+                                <label class="label col col-md-7" id="hotspot_serirb">  
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Merk</label>
+                                <label class="label col col-md-7" id="hotspot_merk">  
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">AP Seri</label>
+                                <label class="label col col-md-7" id="hotspot_apseri">     
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Mac Address / SN</label>
+                                <label class="label col col-md-7" id="hotspot_macaddress">
+                                </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Kondisi</label>
+                                <label class="label col col-md-7" id="hotspot_kondisi">
+                                </label>
+                                
+                            </section>
+                           
+                        </div>
+                                               
+                                               
+                                            
+                </fieldset>
+
+                <fieldset>
+                        <div class="row">
+                            <section class="col col-12">VOIP</section>
+                        </div>
+                                        
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Status</label>
+                                <label class="label col col-md-7" id="voip_status">
+                                </label>
+                                
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Jumlah</label>
+                                <label class="label col col-md-7" id="voip_jumlah">
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Kondisi</label>
+                                <label class="label col col-md-7" id="voip_kondisi">
+                                </label>
+                                
+                            </section>
+                            <section class="col col-6">
+                                <label class="label col col-md-5">IP Address</label>
+                                <label class="label col col-md-7" id="voip_ipaddress">
+                                
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="label col col-md-5">Mac Address / SN</label>
+                                <label class="label col col-md-7" id="voip_macaddress">    
+                                </label>
+                            </section>
+                            
+                           
+                        </div>
+                       
+                                               
+                                            
+                </fieldset>
+                <fieldset>
+                        <div class="row">
+                            <section class="col col-12">Finger Print</section>
+                        </div>                
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <label class="label col col-md-5">Status</label>
+                                                        <label class="label col col-md-7" id="finger_status">    
+                                                        </label>
+
+                                                    </section>
+                                                    <section class="col col-6">
+                                                        <label class="label col col-md-5">Jumlah</label>
+                                                        <label class="label col col-md-7" id="finger_jumlah">    
+                                                        </label>
+                                                    </section>
+                                                </div>
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <label class="label col col-md-5">Kondisi</label>
+                                                        <label class="label col col-md-7" id="finger_kondisi">    
+                                                        </label>
+                                                        
+                                                    </section>
+                                                    <section class="col col-6">
+                                                        <label class="label col col-md-5">IP Address</label>
+                                                        <label class="label col col-md-7" id="finger_ipaddress">    
+                                                        </label>
+                                                    </section>
+                                                </div>
+                                                <div class="row">
+                                                    <section class="col col-6">
+                                                        <label class="label col col-md-5">Mac Address / SN</label>
+                                                        <label class="label col col-md-7"id="finger_macaddress">
+                                                        </label>
+                                                    </section>
+                                                    
+                                                   
+                                                </div>
+                                               
+                                               
+                                            
+                                    </fieldset>
+                     </form>   
+
+                </div>
+            
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal edit-->

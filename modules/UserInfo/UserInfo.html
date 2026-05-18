@@ -1,0 +1,251 @@
+<div class="{{module_id_class}}">
+   <div class="box box-primary">
+      <div class="box-primary box">
+         <div class="box box-primary pad">
+            <div class="table table-modules">
+               <!-- Widget ID (each widget will need unique ID)-->
+               <div class="jarviswidget jarviswidget2 jarviswidget-color-blueDark" id="wid-id-1"
+                  data-widget-editbutton="false">
+                  <header class="">
+                     <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                     <h2>User Info</h2>
+                  </header>
+                  <!-- widget div-->
+                  <div>
+                     <!-- widget edit box -->
+                     <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+                     </div>
+                     <!-- end widget edit box -->
+                     <!-- widget content -->
+                     <div class="widget-body">
+                        <div class="col-md-4">
+                           <div class="box box-widget widget-user jarviswidget jarviswidget-color jarviswidget-sortable">
+                              <header class="">
+                                 <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                 <h2>Group </h2>
+                              </header>
+                              
+                              <div class="widget-user-image">
+                                 <img class="img-circle" src="resources/images/User-128.png" alt="User Avatar">
+                              </div>
+                              <div class="box-footer no-padding" style="padding-top:50px!important">
+                                 <ul class="nav nav-stacked">
+                                    <li><a href="#"><b>Nama</b><span class="pull-right text-blue nama"></span></a></li>
+                                    <li><a href="#"><b>Group</b><span class="pull-right text-aqua grup"></span></a></li>
+                                    <!-- <li><a href="#"><b>Instansi</b><span class="pull-right badge bg-red"></span></a></li> -->
+                                    <li><a href="#"><b>Last Login</b><span class="pull-right text-red login"></span></a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-8">
+                           <article class="sortable-grid ui-sortable col">
+                                 <div class="jarviswidget jarviswidget-color jarviswidget-sortable jarviswidget-color-greenLight">
+                                    <header class="">
+                                       <span class="widget-icon"> <i class="fa fa-sun-o"></i> </span>
+                                       <h2 class="box-title">User Info</h2>
+                                    </header>
+                                 
+                                       
+                                       
+                                 
+                                    <div class="box-body">
+                                       <form class="form-horizontal form-insert" id="form-user">
+                                          <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Username</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="username" id="username" readonly="">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Nama</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="nama" id="nama">
+                                                   </div>
+                                                </div>
+                                                <!--     <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">User Level</label>
+                                                   <div class="col-sm-8">
+                                                       <input type="text" class="form-control" name="level" id="level">
+                                                   </div>
+                                                   </div> -->
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Email</label>
+                                                   <div class="col-sm-8 border">
+                                                      <input type="text" class="form-control" name="email" id="email">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <div class="widget-footer">
+                                                      <button type="submit" class="btn btn-info pull-right update-one">Simpan</button>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </form>
+                                    </div>
+                                 </div>
+                                 <div class="jarviswidget jarviswidget-color jarviswidget-sortable jarviswidget-color-blueLight">
+                                    <header class="">
+                                       <span class="widget-icon"> <i class="fa fa-lock"></i></span>
+                                       <h2 class="box-title">User Password</h2>
+                                    </header>
+                                 
+                                    <div class="widget-body">
+                                       <form class="form-horizontal form-insert">
+                                          <div class="row">
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Password</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="password" class="form-control" name="password" id="password">
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Re-type Password</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="password" class="form-control" name="password2" id="password2">
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </form>
+                                       <div class="widget-footer">
+                                          <button type="submit" class="btn btn-info pull-right update-pass">Update Password</button>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+
+                                 <div class="jarviswidget jarviswidget-color jarviswidget-sortable jarviswidget-color-blueLight hidden">
+                                    <header class="">
+                                       <span class="widget-icon"> <i class="fa fa-lock"></i></span>
+                                       <h2 class="box-title">Setting Instansi</h2>
+                                    </header>
+                                 
+                                    <div class="widget-body">
+                                       <form class="form-horizontal form-insert">
+                                          <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="form-group">
+                                                   <label class="col-md-2 control-label" for="select-1">Piilih Instansi</label>
+                                                   <div class="col-md-10">
+                           
+                                                      <select class="form-control" id="select-1">
+                                                         
+                                                      </select> 
+                           
+                                                   </div>
+                                                </div>
+                                             
+                                             </div>
+                                          </div>
+                                       </form>
+                                       <div class="widget-footer">
+                                          <button type="submit" class="btn btn-info pull-right update-pass">Simpan Instansi</button>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                                 <div class="jarviswidget jarviswidget-color jarviswidget-sortable jarviswidget-color-purple hidden">
+                                    <header class="">
+                                       <span class="widget-icon"> <i class="fa fa-cogs"></i></span>
+                                       <h2 class="box-title">User Setting</h2>
+                                    </header>
+                                 
+                                    <div class="widget-body">
+                                       <form class="form-horizontal form-update">
+                                          <div class="row">
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Tahun</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="tahun" id="tahun">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param2</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param2" id="param2">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param3</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param3" id="param3">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param4</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param4" id="param4">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param5</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param5" id="param5">
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param6</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param6" id="param6">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param7</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param7" id="param7">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param8</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param8" id="param8">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param9</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param9" id="param9">
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="inputEmail3" class="col-sm-4 text-left">Param10</label>
+                                                   <div class="col-sm-8">
+                                                      <input type="text" class="form-control" name="param10" id="param10">
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </form>
+                                       <div class="widget-footer">
+                                          <button type="submit" class="btn btn-info pull-right simpan-perubahan">Simpan Perubahan</button>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                           </article>
+                        </div>
+                     </div>
+                     <!-- end widget content -->
+                  </div>
+                  <!-- end widget div -->
+               </div>
+               <!-- end widget -->
+            </div>
+         </div>
+      </div>
+      <div class="overlay">
+         <i class="fa fa-refresh fa-spin"></i>
+      </div>
+   </div>
+</div>

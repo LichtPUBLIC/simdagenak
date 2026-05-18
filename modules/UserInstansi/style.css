@@ -1,0 +1,33 @@
+.uo-module {
+    font: bold 14px Arial,sans-serif;
+    padding: 2px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.uo-action {
+    padding-left: 18px;
+}
+
+.mod-userotoritas .group-menu a {
+    color: #546E7A;
+}
+
+.mod-userotoritas a.mod.list.active {
+    color: #E91E63;
+    font-weight: bold;
+    /*border-bottom: 1px dotted;*/
+    border-left: 1px solid;
+}
+
+.mod-userotoritas .group-menu>div>a.active {
+    font-weight: bold;
+    border-left: 2px solid;
+}
+
+.mod-userotoritas a.list {
+    padding: 5px 10px;
+}
+
+.mod-userotoritas .user {
+    padding: 5px 10px;
+}

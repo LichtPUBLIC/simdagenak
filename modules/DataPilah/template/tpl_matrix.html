@@ -1,0 +1,39 @@
+<style>
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #3276b1; color: #fff; padding: 5px; border: 1px solid #ddd; text-align: center; font-size: 11px; }
+    td { border: 1px solid #ddd; padding: 4px; font-size: 11px; }
+    .cell-no { text-align: center; width: 30px; }
+    .cell-nama { font-weight: bold; width: 150px; }
+    .cell-val { text-align: right; }
+    .header-info { margin-bottom: 10px; border-bottom: 2px solid #3276b1; padding-bottom: 5px; }
+    .header-info h2 { margin: 0; font-size: 16px; color: #3276b1; }
+    .header-info p { margin: 5px 0; font-size: 12px; }
+</style>
+
+<div class="header-info">
+    <h2>{{judul}}</h2>
+    <p>Tahun: {{tahun}} | Dinas: {{dinas}}</p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width: 30px;">No</th>
+            <th style="width: 150px;">{{header_baris}}</th>
+            {{#kolom}}
+            <th>{{header_kolom}}</th>
+            {{/kolom}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#baris}}
+        <tr>
+            <td class="cell-no">{{no_urut}}</td>
+            <td class="cell-nama">{{nama_baris}}</td>
+            {{#cells}}
+            <td class="cell-val">{{val}}</td>
+            {{/cells}}
+        </tr>
+        {{/baris}}
+    </tbody>
+</table>

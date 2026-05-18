@@ -1,0 +1,16 @@
+.mod-dashboard .table-surat .jsgrid-cell {
+	border-right-width: 0;
+	border-left-width: 0;
+}
+.mod-dashboard .table-surat .jsgrid-grid-body{
+	border-width: 0px!important;
+}
+.mod-dashboard .table-surat .jsgrid-grid-header {
+	border:0;
+}
+.mod-dashboard .table-surat .jsgrid-header-row {
+	display: none!important;
+}
+.box-title i {
+	padding-right: 	10px;
+}

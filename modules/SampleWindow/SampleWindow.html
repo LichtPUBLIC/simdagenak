@@ -1,0 +1,19 @@
+<!-- Konten ini akan di injeksi ke #myAppModal .modal-content  -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Modul SampleWindow <small>{{title_add}}</small></h4>
+</div>
+<div class="modal-body">
+    The content of Modul SampleWindow Bro...<br />
+    Ini data yang dikirim dari modul pemanggil: <b>{{data_src}}</b><br />
+    Data ditampilkan saat render: <b>{{data_init}}</b><br />
+    <div class="target">
+
+    </div>
+
+    <button class="clickme">Clik Me</button>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

@@ -1,0 +1,9 @@
+.jsgrid-row.selected > td, .jsgrid-alt-row.selected > td {
+    background: #D5F2FF;
+    /*font-weight: bold;*/
+}
+
+/*td.jsgrid-cell {
+    font: normal 11px Tahoma, Verdana, sans-serif;
+}
+*/

@@ -1,0 +1,55 @@
+<div class="{{module_id_class}}">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="well" style="background: #fff; border-left: 5px solid #3276b1;">
+                <h1 style="margin-top: 0;">Selamat Datang, {{userData.nama}}</h1>
+                <p>Anda login sebagai <b>{{userData.level_name}}</b>. Selamat bekerja!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="jarviswidget jarviswidget-color-blueDark">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>Statistik Pengisian Data per Tahun</h2>
+                </header>
+                <div>
+                    <div class="widget-body">
+                        <div id="chartContainer" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="jarviswidget jarviswidget-color-greenLight">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-info"></i> </span>
+                    <h2>Ringkasan Sistem</h2>
+                </header>
+                <div>
+                    <div class="widget-body">
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                                    <h1 id="countMatrix" style="font-size: 40px; margin: 0; color: #3276b1;">0</h1>
+                                    <p class="text-muted">Total Matrix</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <div style="padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                                    <h1 id="countUnit" style="font-size: 40px; margin: 0; color: #5db85d;">0</h1>
+                                    <p class="text-muted">Total Dinas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p><i class="fa fa-clock-o"></i> Tahun Aktif: <b id="activeYear">2026</b></p>
+                        <p><i class="fa fa-database"></i> Status Database: <span class="label label-success">Online</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+<style>
+    th {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    td {
+        padding: 1px
+    }
+
+    .head {
+        background-color: rgba(143, 175, 68, 1);
+    }
+
+    .fix {
+        position: fixed;
+    }
+
+    .bg-grey {
+        background-color: rgba(202, 218, 235, 1);
+    }
+
+    .nopadding {
+        padding: 0 !important;
+        margin: 2px !important;
+    }
+</style>
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="jarviswidget jarviswidget2 jarviswidget-color-blueDark" id="wid-id-1"
+     data-widget-editbutton="false">
+
+    <header class="">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+        <h2>Data Gender Per Tahun</h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+
+        <!-- widget content -->
+        <div class="widget-body">
+            <div class="box"><!--
+                                    <form class="" id="formCari">
+                                        <div class="col-md-6 pad" style="margin-bottom:5px">
+                                            <select name="id_pilar" class="cbPilar" style="width: 100%">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 pad" style="margin-bottom:5px">
+                                            <select name="kode_tujuan" class="cbTujuan" style="width: 100%" >
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6" style="margin-bottom:5px">
+                                            <select name="kode_target" class="cbTarget" style="width: 100%">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6" style="margin-bottom:5px">
+                                            &lt;!&ndash;<select name="kode_indikator" class="form-control cbIndikator">
+
+                                            </select>&ndash;&gt;
+                                            <input type="text" name="kode_indikator" class="form-control cbIndikator" placeholder="Cari indikator">
+                                        </div>
+                                        <div class="col-md-1" style="margin-bottom:5px">
+                                            <button class="btn btn-primary btTampilkan">
+                                                <i class="fa fa-search"></i><span>Tampilkan</span>
+                                            </button>
+                                        </div>
+                                    </form>-->
+                <!--<div class="col-md-1" style="margin-bottom:5px">
+                    <button class="btn btn-primary btTampilkan">
+                        <i class="fa fa-search"></i><span>Tampilkan</span>
+                    </button>
+                </div>-->
+            </div>
+            <table id="datatable_fixed_column2" class="table table-striped table-bordered"
+                   width="100%">
+
+                <thead class="kepala">
+                <tr>
+                    <th data-class="expand">No</th>
+                    <th data-class="expand">Aksi</th>
+                    <th data-class="expand">id_data_gender</th><th data-class="expand">id_data_per_instansi</th><th data-class="expand">tahun</th><th data-class="expand">l</th><th data-class="expand">p</th><th data-class="expand">user_input</th><th data-class="expand">user_update</th><th data-class="expand">tgl_input</th><th data-class="expand">tgl_update</th>
+                </tr>
+                </thead>
+                <tbody id="bodiku">
+                </tbody>
+
+            </table>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 75%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tambah Data</h4>
+            </div>
+            <form class="form-horizontal" id="form_input">
+                <input type="hidden" name="id">
+                <div class="modal-body">
+                    <div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>id_data_gender</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="id_data_gender">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>id_data_per_instansi</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="id_data_per_instansi">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>tahun</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="tahun">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>l</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="l">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>p</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="p">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>user_input</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="user_input">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>user_update</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="user_update">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>tgl_input</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="tgl_input">
+                        </div>
+                    </div><div class="form-group nopadding">
+                        <label class="col-sm-2"><strong>tgl_update</strong></label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="tgl_update">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btSimpan btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+            </div>
+        </div>
+
+    </div>
+</div>

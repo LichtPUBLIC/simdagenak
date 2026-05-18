@@ -1,0 +1,49 @@
+<div class="{{module_id_class}}">
+    <!-- SECTION 1: DAFTAR MATRIKS TUGAS -->
+    <div id="sectionDaftar" class="dp-section active">
+        <div class="well" style="background: #fff; border-left: 5px solid #2196F3;">
+            <h2 style="margin-top: 0;"><i class="fa fa-pencil-square-o"></i> Input Data Pilah</h2>
+            <p>Silakan pilih matriks di bawah ini untuk mengisi data sesuai dengan tahun yang ditentukan.</p>
+        </div>
+
+        <div class="row" id="listMatriksAssigned">
+            <!-- Will be populated by JS -->
+        </div>
+    </div>
+
+    <!-- SECTION 2: ENTRY FORM -->
+    <div id="sectionEntry" class="dp-section">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-default btKembali" style="margin-bottom: 15px;">
+                    <i class="fa fa-arrow-left"></i> Kembali ke Daftar
+                </button>
+                
+                <div class="jarviswidget" style="border:1px solid #ccc; border-radius:4px;">
+                    <header style="background:#2196F3; color:#fff; padding:8px 12px;">
+                        <h2 style="font-size:14px; margin:0;" id="detailJudul">Preview Matriks</h2>
+                        <div class="pull-right" style="margin-top:-4px; display: flex; gap: 5px;">
+                            <select id="cbTahunMatriks" class="form-control input-sm" style="display:inline-block; width:auto;"></select>
+                            <button class="btn btn-xs btn-warning btRefreshMatriks" title="Refresh Matriks"><i class="fa fa-refresh"></i></button>
+                        </div>
+                    </header>
+                    <div style="padding:10px; overflow-x:auto;" id="matriksContainer">
+                        <table id="matriksTable" class="table table-bordered table-striped table-hover" style="background:#fff; margin-bottom:0;"></table>
+                        <div id="matriksEmpty" style="padding:40px; text-align:center; display:none;" class="text-muted">
+                            <i class="fa fa-info-circle fa-2x"></i><br>Matriks belum dikonfigurasi oleh Admin.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dp-section { display: none; }
+    .dp-section.active { display: block; }
+    .matrix-card { cursor: pointer; transition: 0.3s; margin-bottom: 20px; }
+    .matrix-card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .cell-input { width: 100%; border: 1px solid #ddd; padding: 4px; text-align: right; border-radius: 3px; }
+    .cell-input:focus { border-color: #2196F3; outline: none; box-shadow: 0 0 5px rgba(33, 150, 243, 0.3); }
+</style>

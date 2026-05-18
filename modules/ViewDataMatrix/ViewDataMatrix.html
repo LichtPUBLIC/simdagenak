@@ -1,0 +1,45 @@
+<div class="{{module_id_class}}">
+    <!-- SECTION 1: DAFTAR MONITORING -->
+    <div id="sectionDaftar" class="dp-section active">
+        <div class="well" style="background: #fff; border-left: 5px solid #4caf50;">
+            <h2 style="margin-top: 0;"><i class="fa fa-eye"></i> Monitoring Data Pilah</h2>
+            <p>Pilih matriks untuk melihat data yang telah diinput oleh masing-masing dinas.</p>
+        </div>
+
+        <div class="row" id="listViewMatriks">
+            <!-- Will be populated by JS -->
+        </div>
+    </div>
+
+    <!-- SECTION 2: VIEW DATA -->
+    <div id="sectionView" class="dp-section">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-default btKembali" style="margin-bottom: 15px;">
+                    <i class="fa fa-arrow-left"></i> Kembali ke Daftar
+                </button>
+                
+                <div class="jarviswidget jarviswidget-color-green">
+                    <header style="padding:8px 12px;">
+                        <h2 style="font-size:14px; margin:0;" id="viewJudul">Data Matriks</h2>
+                        <div class="pull-right" style="margin-top:-4px; display: flex; gap: 5px;">
+                            <select id="cbUnitView" class="form-control input-sm" style="width:200px;"></select>
+                            <select id="cbTahunView" class="form-control input-sm" style="display:inline-block; width:auto;"></select>
+                            <button class="btn btn-xs btn-warning btRefreshView" title="Refresh"><i class="fa fa-refresh"></i></button>
+                        </div>
+                    </header>
+                    <div style="padding:10px; overflow-x:auto;" id="viewContainer">
+                        <table id="viewTable" class="table table-bordered table-striped" style="background:#fff; margin-bottom:0;"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dp-section { display: none; }
+    .dp-section.active { display: block; }
+    .view-card { cursor: pointer; transition: 0.3s; margin-bottom: 20px; }
+    .view-card:hover { transform: scale(1.02); }
+</style>

@@ -1,0 +1,11 @@
+    .box {
+        margin-bottom:0!important;
+    }
+    .box-header,
+    .box-body,
+    .box-footer {
+        padding: 7.5px 10px;
+    }
+    .form-group {
+        margin-bottom:7.5px;
+    }

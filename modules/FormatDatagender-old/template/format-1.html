@@ -1,0 +1,43 @@
+<style>
+    .headku {
+        padding: 5px !important;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+
+<form class="form-horizontal" id="formDataFormat">
+    <input type="hidden" name="id">
+    <div class="modal-body">
+
+        <div class="form-group nopadding">
+            <label class="col-sm-2"><strong>Tahun</strong></label>
+            <div class="col-md-10">
+                <select name="tahun" id="idTahun" class="form-control">
+                    {{{tahun_options}}}
+                </select>
+            </div>
+        </div>
+        <hr>
+        <table class="table-bordered">
+            <tr style="background-color: #e6f4ee">
+                <th class="headku" rowspan="2" style="width: 3%;vertical-align: middle !important;">No</th>
+                <th class="headku" rowspan="2" style="width: 25%;vertical-align: middle !important;">Keterangan</th>
+                <th class="headku" colspan="2">{{tahun}}</th>
+            </tr>
+            <tr style="background-color: #e6f4ee">
+                <th class="headku" style="width: 10%;">L</th>
+                <th class="headku" style="width: 10%;">P</th>
+            </tr>
+            {{#value}}
+            <tr>
+                <td>{{nomor}}</td>
+                <input type="hidden" name="row_id{{nomor}}" value="{{row_id}}">
+                <td><input type="text" value="{{keterangan}}" name="keterangan{{nomor}}" style="width: 100%;"></td>
+                <td><input type="text" value="{{count_l}}" name="l{{nomor}}" style="width: 100%;"></td>
+                <td><input type="text" value="{{count_p}}" name="p{{nomor}}" style="width: 100%;"></td>
+            </tr>
+            {{/value}}
+        </table>
+
+    </div></form>

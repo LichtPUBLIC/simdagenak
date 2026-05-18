@@ -1,0 +1,353 @@
+{
+  "type": "Equation",
+  "value": null,
+  "operands": {
+    "topLevelContainer": [
+      {
+        "type": "StackedFraction",
+        "value": null,
+        "operands": {
+          "numerator": [
+            {
+              "type": "Symbol",
+              "value": "h",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "t",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "n",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "i",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "r",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "m",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": " ",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "g",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "n",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "u",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "m",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "r",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": " ",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "j",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "r",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "k",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "-",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "h",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "l",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "m",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "u",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "J",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "m",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "l",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": " ",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "i",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "d",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": " ",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "n",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "u",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "m",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "r",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "-",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "j",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "r",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "k",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "e",
+              "operands": null
+            },
+            {
+              "type": "Symbol",
+              "value": "p",
+              "operands": null
+            }
+          ],
+          "denominator": [
+            {
+              "type": "Symbol",
+              "value": "b",
+              "operands": null
+            }
+          ]
+        }
+      },
+      {
+        "type": "Symbol",
+        "value": "x",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "1",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "0",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "0",
+        "operands": null
+      }
+    ]
+  }
+}

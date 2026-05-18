@@ -1,0 +1,56 @@
+{
+  "type": "Equation",
+  "value": null,
+  "operands": {
+    "topLevelContainer": [
+      {
+        "type": "StackedFraction",
+        "value": null,
+        "operands": {
+          "numerator": [
+            {
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },{
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            },{
+              "type": "Symbol",
+              "value": "a",
+              "operands": null
+            }
+          ],
+          "denominator": [
+            {
+              "type": "Symbol",
+              "value": "b",
+              "operands": null
+            }
+          ]
+        }
+      },
+      {
+        "type": "Symbol",
+        "value": "x",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "1",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "0",
+        "operands": null
+      },
+      {
+        "type": "Symbol",
+        "value": "0",
+        "operands": null
+      }
+    ]
+  }
+}

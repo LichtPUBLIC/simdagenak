@@ -1,0 +1,118 @@
+<style type="text/css">
+
+    @media print {
+        @page {
+            size: portrait;
+            margin: 10px;
+        }
+
+        html, body, table {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        /* ... the rest of the rules ... */
+    }
+
+    table {
+        /*font-family: "Helvetica Neue", Helvetica, sans-serif;*/
+        border-collapse: collapse;
+    }
+
+    /*thead th {
+        background: SteelBlue;
+        color: white;
+        text-align: center;
+    }*/
+
+    thead td {
+        /*background-color: #FFEB3B;*/
+        text-align: center;
+
+    }
+
+    th,
+    td {
+        border: 1px solid #CCC;
+        padding: 5px;
+        /*font-family: monospace;*/
+        font-size: 12px;
+    }
+
+    /*todo tes*/
+    .no {
+        width: 50px;
+    }
+
+    .tahun {
+        width: 150px;
+    }
+
+    /*tbody tr:nth-child(even) {
+        background: WhiteSmoke;
+    }*/
+
+    .pilar {
+        padding-left: 5px;
+        font-weight: bold;
+    }
+
+    .tujuan {
+        padding-left: 10px;
+        font-weight: bold;
+    }
+
+    .target {
+        padding-left: 15px;
+        font-weight: bold;
+    }
+
+    .indikator {
+        padding-left: 20px;
+        /*font-weight: bold;*/
+    }
+
+    .item {
+        padding-left: 30px;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    tfoot tr th:last-child {
+        /*font-family: monospace;*/
+    }
+
+    td .batas-bawah-row-skpd {
+        border-bottom: 3px solid #99ADB5;
+
+    }
+
+
+</style>
+
+
+<div class="">
+    <div class="header box box-primary">
+        <h4 class="title" id="myModalLabel">{{judul}}</h4>
+    </div>
+    <div class="box-body">
+        <table>
+            <thead>
+            <tr>
+                <th>id_capaian</th><th>indikator</th><th>id_urusan</th><th>nilai_data</th><th>keterangan</th><th>canvas</th><th>update_date</th><th>input_date</th><th>user_update</th><th>user_input</th><th>operasi_math_query</th><th>operasi_math</th><th>json_rumus</th><th>kode_indikator</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#value}}
+            <tr>
+                <td>{{id_capaian}}</td><td>{{indikator}}</td><td>{{id_urusan}}</td><td>{{nilai_data}}</td><td>{{keterangan}}</td><td>{{canvas}}</td><td>{{update_date}}</td><td>{{input_date}}</td><td>{{user_update}}</td><td>{{user_input}}</td><td>{{operasi_math_query}}</td><td>{{operasi_math}}</td><td>{{json_rumus}}</td><td>{{kode_indikator}}</td>
+            </tr>
+            {{/value}}
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>

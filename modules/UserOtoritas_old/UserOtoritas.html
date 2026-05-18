@@ -1,0 +1,72 @@
+<div class="{{module_id_class}}">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">User</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right search-user"
+                                   placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box-body solid-box">
+                    <div class="group-menu">
+                        {{#users}}
+                        <div class="group-list box collapsed-box">
+                            <a class="list" href="#" data-widget="collapse" data-gid="{{group_id}}">
+                                <i class="fa fa-users"></i>
+                                <span>{{text}}</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <div class="box-body list-user">
+                                {{#children}}
+                                <div class="user" data-id="{{text}}">
+                                    <a href="#" class="mod list" data-uid="{{user_id}}">{{text}}</a>
+                                </div>
+                                {{/children}}
+                            </div>
+                        </div>
+                        {{/users}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="box-header">
+                <h3 class="box-title">Daftar Module dan Otoritas Aksi</h3>
+
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 250px;">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-danger btn-flat simpan-oto"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan
+                            </button>
+                        </div>
+                        <input type="text" name="table_search" class="form-control pull-right search-oto"
+                               placeholder="Search">
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding table-otoritas">
+                {{#oto}}
+                {{#new_module}}
+                <div class="uo-module {{module_id}}">
+                    <input type="checkbox" data-id="{{module_id}}">
+                    Module: {{name}} ({{module_id}})
+                </div>
+                {{/new_module}}
+                <div class="uo-action {{module_id}}">
+                    <input type="checkbox" class="{{module_id}}_{{action_id}}" data-mid="{{module_id}}"
+                           data-acid="{{action_id}}">
+                    {{option}}_{{action}} ({{action_desc}}) <span style="visibility:hidden">{{module_id}}</span>
+                </div>
+                {{/oto}}
+            </div>
+        </div>
+    </div>
+</div>

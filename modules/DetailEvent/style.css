@@ -1,0 +1,11 @@
+/* Untuk mengubah default width modal */
+.mod-detail-event .modal-dialog {
+    width: 60%;
+}
+
+.modal-title small {
+    margin-right: 20px;
+    padding-top: 4px;
+    color: #FF9800;
+    border-bottom: 1px dotted;
+}

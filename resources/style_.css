@@ -1,0 +1,308 @@
+.content {
+    padding: 10px;
+    min-height: calc(100vh - 50px)
+}
+
+.mod-title {
+    float: left;
+}
+
+.mod-title h1 {
+    margin: 0;
+    font-size: 24px;
+    padding: 10px;
+    color: #FFEB3B;
+}
+
+.mod-title small {
+    color: #ddd;
+}
+.btn {
+    margin-bottom: 10px;
+}
+.box {
+    margin-bottom: 10px;
+}
+.small-box {
+    margin-bottom: 15px;
+}
+.small-box h3,
+.small-box p {
+    margin: 0;
+}
+.small-box .icon {
+    top: 10px;
+    right: 15px;
+    font-size: 45px;
+}
+.small-box:hover .icon {
+    font-size: 50px;
+}
+/* Header Aplikasi */
+
+.skin-green .main-header .navbar {
+    background-color: #3F51B5;
+}
+
+
+/* Dashboard Main Sidebar Menu */
+
+.sidebar-menu>li.treeview> a.child.active,
+.treeview-menu>li>a.child.active {
+    background: #435a63;
+    color: #CDDC39;
+    font-style: italic;
+}
+
+.clearfix {
+    height: 50px;
+    content: "";
+}
+
+.padding {
+    padding: 10px;
+}
+
+
+/* Mask Global*/
+
+#global-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background: #000;*/
+    z-index: 9999;
+    top: 0;
+    /*background: rgba(0, 0, 0, 0.1);*/
+}
+
+#global-mask i.fa.fa-spinner.fa-spin {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    font-size: 2em;
+    color: #ff9800;
+}
+
+#global-mask .msg {
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    left: 30%;
+    text-align: center;
+    font-size: 1em;
+    color: #ff9800;
+    padding-left: 2em;
+}
+
+@media (min-width: 768px) {
+    .min-left {
+        padding-left: 7.5px;
+    }
+    .min-right {
+        padding-right: 7.5px;
+    }
+}
+@media (max-width: 767px) {
+    .main-sidebar,
+    .left-side,    
+    .fixed .content-wrapper,
+    .fixed .right-side {
+        padding-top: 50px;
+    } 
+}
+@media (max-width: 568px) {
+    .col-xs-3.min-left {
+        padding-left: 5px;
+    }
+    .col-xs-3.min-right {
+        padding-right: 5px;
+    }
+}
+/**
+ * override bootstrap
+ */
+
+.no-gutter> [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/**
+  * Override AdminLTE
+  */
+
+
+/*  .box.box-primary {
+    border-top-color: none;
+  }
+  .box {
+    position: relative;
+    border-radius: 0;
+    background: transparent;
+    border-top: none;
+    margin-bottom: 5px;
+    width: 100%;
+    box-shadow: none;
+  }*/
+
+.navbar-nav>.messages-menu>.dropdown-menu>li .menu>li>a>p {
+    word-wrap: normal;
+    white-space: normal;
+}
+
+
+/* agar header wrap 100% width tanpa header sidemenu */
+
+.main-header>.navbar {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) .sidebar-mini.sidebar-collapse .main-header .navbar {
+    margin-left: 0;
+}
+
+
+/*
+    override jsGrid
+ */
+
+.jsgrid-grid-body {
+    background: #fff;
+}
+
+
+/* lebar td table */
+
+.jsgrid-table td,
+.jsgrid-table th {
+    padding: 2px 5px;
+    font-size: 14px;
+}
+
+.jsgrid th {
+    padding: 0.4em 0.5em;
+    font-weight: : bold;
+    font-size: 14px;
+}
+
+.jsgrid-grid-header {
+    border-color: #B0BEC5;
+}
+
+.jsgrid-header-row>.jsgrid-header-cell {
+    background: #CFD8DC;
+    border-color: #B0BEC5;
+}
+
+.jsgrid-grid-body {
+    border-color: #B0BEC5;
+}
+
+td.jsgrid-cell {
+    border-color: #ECEFF1;
+}
+
+
+/* lebar ketika proses editing di td */
+
+.jsgrid-edit-row input,
+.jsgrid-edit-row select,
+.jsgrid-edit-row textarea,
+.jsgrid-filter-row input,
+.jsgrid-filter-row select,
+.jsgrid-filter-row textarea,
+.jsgrid-insert-row input,
+.jsgrid-insert-row select,
+.jsgrid-insert-row textarea {
+    padding: 0 .5em;
+}
+
+.logo-lg {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+/* Icon sorting jsGrid */
+
+.jsgrid-header-sort:before {
+    float: right;
+    margin-top: 9px;
+}
+
+
+/* item icon di row jsGrid */
+
+.jsgrid .glyphicon,
+.jsgrid .fa {
+    background: #696969;
+    border: none;
+    padding: 2px 5px;
+    margin-right: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.jsgrid .fa.item-edit {
+    background: #E0F2F1;
+    color: #009688;
+    border: 1px solid #c0e8e5;
+}
+
+.jsgrid .fa.item-delete {
+    color: #EF5350;
+    border: 1px solid #f7e6e6;
+    background: #FFEBEE;
+}
+
+.jsgrid .fa.item-save {
+    background: #039BE5;
+    color: #fff;
+    border: 1px solid #039BE5;
+}
+
+.jsgrid .fa.item-add {
+    background: #E1F5FE;
+    border: 1px solid #BBDEFB;
+    color: #42A5F5;
+}
+
+.jsgrid .fa.item-undo {
+    background: #9C27B0;
+}
+
+.jsgrid .glyphicon:last-child,
+.jsgrid .fa:last-child {
+    margin-right: 0;
+}
+
+.btn i {
+    padding-right: 7px;
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    z-index: 9998;
+    background: #3598DC;
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-top-width: 0;
+    border-radius: 2px;
+}
+
+.loading i {
+    margin-right: 5px;
+}
+.main-header .collapse-sign {
+    display: none;
+}
