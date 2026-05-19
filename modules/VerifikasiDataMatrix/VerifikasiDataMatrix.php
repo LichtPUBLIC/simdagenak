@@ -1,6 +1,6 @@
 <?php
 
-class FormatDatagender extends Database
+class VerifikasiDataMatrix extends Database
 {
 
     function __construct()
@@ -386,10 +386,9 @@ class FormatDatagender extends Database
 
     public function ACTION_UpdateDataFormat(){
         $params = isset($_GET) ? $_POST : $_POST;
-       // print_r($params);exit;
         $tahun = $params['data']['thun'];
         $kode_data_pilah = $params['data']['kode_data_pilah'];
-
+        
         $sqlCekVerif = "SELECT count(*) FROM data_pilah_verifikasi WHERE kode_data_pilah='$kode_data_pilah' AND tahun=$tahun AND is_verified=1";
         $isVerif = $this->dbDataGetValue($sqlCekVerif);
         if ($isVerif > 0) {
@@ -607,6 +606,36 @@ class FormatDatagender extends Database
 
          $sql="SELECT * from reff_unit_kerja";
          echo $this->dbDataSelectAndReturnAll($sql);
+    }
+
+    public function ACTION_getVerifStatus(){
+        $params = empty($_POST) ? $_GET : $_POST;
+        $kode_data_pilah = $params['kode_data_pilah'];
+        $tahun = $params['tahun'];
+        
+        $sql = "SELECT is_verified FROM data_pilah_verifikasi WHERE kode_data_pilah='$kode_data_pilah' AND tahun=$tahun";
+        $is_verified = $this->dbDataGetValue($sql);
+        
+        echo json_encode(['success' => true, 'is_verified' => $is_verified ? 1 : 0]);
+    }
+
+    public function ACTION_toggleVerif(){
+        $params = empty($_POST) ? $_GET : $_POST;
+        $kode_data_pilah = $params['kode_data_pilah'];
+        $tahun = $params['tahun'];
+        $is_verified = $params['is_verified'];
+        $id_instansi = isset($params['id_instansi']) ? $params['id_instansi'] : 0;
+        
+        $sqlCek = "SELECT count(*) FROM data_pilah_verifikasi WHERE kode_data_pilah='$kode_data_pilah' AND tahun=$tahun";
+        $count = $this->dbDataGetValue($sqlCek);
+        if($count > 0){
+            $sql = "UPDATE data_pilah_verifikasi SET is_verified=$is_verified, verified_at=NOW(), id_instansi=$id_instansi WHERE kode_data_pilah='$kode_data_pilah' AND tahun=$tahun";
+        }else{
+            $sql = "INSERT INTO data_pilah_verifikasi (kode_data_pilah, tahun, is_verified, verified_at, id_instansi) VALUES ('$kode_data_pilah', $tahun, $is_verified, NOW(), $id_instansi)";
+        }
+        $this->dbDataExecute($sql);
+        
+        echo json_encode(['success' => true]);
     }
 
     public function PUBLIC_getDataFormat(){

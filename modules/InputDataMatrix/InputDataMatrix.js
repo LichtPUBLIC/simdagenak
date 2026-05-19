@@ -120,6 +120,26 @@
 
             $me('#matriksTable').html(html);
             recalculateSums();
+
+            // Check Verifikasi Status
+            MyApp.ajax({
+                Module: 'VerifikasiDataMatrix',
+                option: 'ACTION', action: 'getVerifStatus',
+                kode_data_pilah: curKode,
+                tahun: tahun
+            }).done(function (resp) {
+                if (resp.success && resp.is_verified == 1) {
+                    $me('#matriksTable .cell-input').prop('readonly', true).css({'background-color':'#f5f5f5', 'cursor':'not-allowed'});
+                    if ($me('#verifWarning').length === 0) {
+                        $me('#matriksTable').before('<div id="verifWarning" class="alert alert-warning" style="padding:10px; margin-bottom:10px;">Data matriks ini sudah diverifikasi dan tidak dapat diedit.</div>');
+                    }
+                } else {
+                    // Re-enable only non-jumlah inputs
+                    $me('#matriksTable .cell-input:not(.cell-jumlah)').prop('readonly', false).css({'background-color':'', 'cursor':''});
+                    $me('#verifWarning').remove();
+                }
+            });
+
         });
     }
 

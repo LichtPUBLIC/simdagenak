@@ -300,6 +300,14 @@ class DataPilah extends Database
         
         $d['id_instansi'] = $id_instansi;
 
+        // Cek Verifikasi
+        $sqlCekVerif = "SELECT count(*) FROM data_pilah_verifikasi WHERE kode_data_pilah='$kode_dp' AND tahun=$tahun AND is_verified=1";
+        $isVerif = $this->dbDataGetValue($sqlCekVerif);
+        if ($isVerif > 0) {
+            echo '{"success":false, "msg":"Data sudah diverifikasi dan tidak dapat diubah."}';
+            exit();
+        }
+
         // Cek apakah cell sudah ada
         $sqlCek = "SELECT count(*) FROM data_pilah_cell 
                    WHERE kode_data_pilah='$kode_dp' AND kode_baris='$kode_baris' 

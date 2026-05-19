@@ -235,16 +235,45 @@
                 if(resp.success && resp.is_verified == 1) {
                     isVerif = true;
                 }
+                $('#chkVerifikasi').prop('checked', isVerif);
                 if (isVerif) {
                     $('.gender-input').prop('readonly', true).css({'background-color':'#f5f5f5', 'cursor':'not-allowed'});
                     $('.btSimpanDataFormat').hide();
-                    if ($('#verifWarning').length === 0) {
-                        $('.titleDataFormat').after('<div id="verifWarning" class="alert alert-warning" style="padding:5px; margin-top:10px;">Data ini sudah diverifikasi dan tidak dapat diedit.</div>');
-                    }
                 } else {
                     $('.gender-input').prop('readonly', false).css({'background-color':'', 'cursor':''});
                     $('.btSimpanDataFormat').show();
-                    $('#verifWarning').remove();
+                }
+            });
+
+            // Handle Verification toggle
+            $('#chkVerifikasi').off('change').on('change', function() {
+                var checked = $(this).is(':checked') ? 1 : 0;
+                var instansi = $('.cb-instansi').val() || 0;
+                if(confirm("Apakah Anda yakin ingin mengubah status verifikasi data ini?")) {
+                    MyApp.ajax({
+                        Module: 'VerifikasiDataMatrix',
+                        option: 'ACTION', action: 'toggleVerif',
+                        kode_data_pilah: MyApp.$me.dataRowFormat.kode_data_pilah,
+                        tahun: curtahun,
+                        is_verified: checked,
+                        id_instansi: instansi
+                    }).done(function (res) {
+                        if(res.success) {
+                            alert("Status verifikasi berhasil diubah.");
+                            if(checked) {
+                                $('.gender-input').prop('readonly', true).css({'background-color':'#f5f5f5', 'cursor':'not-allowed'});
+                                $('.btSimpanDataFormat').hide();
+                            } else {
+                                $('.gender-input').prop('readonly', false).css({'background-color':'', 'cursor':''});
+                                $('.btSimpanDataFormat').show();
+                            }
+                        } else {
+                            alert("Gagal mengubah status verifikasi.");
+                            $('#chkVerifikasi').prop('checked', !checked); // revert
+                        }
+                    });
+                } else {
+                    $(this).prop('checked', !checked); // revert
                 }
             });
 
@@ -285,7 +314,7 @@
         var $dataAll = $.extend(dataForm,MyApp.$me.dataRowFormat);
        
         $.ajax({
-            url : "service.php?option=PUBLIC&action=UpdateDataFormat&Module=FormatDatagender",
+            url : "service.php?option=PUBLIC&action=UpdateDataFormat&Module=VerifikasiDataMatrix",
             data:{
                 data:$dataAll
             },
@@ -294,7 +323,12 @@
         }).done(function (resp) {
             if(resp.success) {
                 alert('Berhasil Menyimpan');
-                loadFormFormat(MyApp.$me.dataRowFormat,$dataAll.thun);
+                $('#myModalFormatForm').modal('hide');
+                if (tablexx) {
+                    tablexx.destroy();
+                    $('#datatable_fixed_column').empty();
+                }
+                datalist();
             } else {
                 alert(resp.msg || 'Gagal menyimpan data.');
             }
