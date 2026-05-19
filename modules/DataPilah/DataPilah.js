@@ -300,24 +300,49 @@
                     '</tr>';
             });
             
-            // Toggle Gunakan 17 Kecamatan BPS button based on row count
+            // Toggle Tambah Kecamatan button based on row count
             if (resp.data.length === 0) {
                 tbody = '<tr><td colspan="4" class="text-center text-muted">Belum ada baris</td></tr>';
-                $me('.btTambahKecamatanBps').prop('disabled', false);
+                $me('.btTambahKecamatan').prop('disabled', false);
             } else {
-                $me('.btTambahKecamatanBps').prop('disabled', true);
+                $me('.btTambahKecamatan').prop('disabled', true);
             }
             
             $me('#tabelBaris tbody').html(tbody);
         });
     }
 
-    // Tombol Gunakan 17 Kecamatan BPS
-    $me('.btTambahKecamatanBps').off('click').on('click', function () {
+    // Tombol Tambah Kecamatan
+    $me('.btTambahKecamatan').off('click').on('click', function () {
+        $('#modalSumberKecamatan').modal('show');
+    });
+
+    // Pilihan BPS
+    $('#modalSumberKecamatan').off('click', '.btPilihBps').on('click', '.btPilihBps', function() {
         if(confirm("Apakah Anda yakin ingin mengisi daftar baris secara otomatis dengan 17 Kecamatan Sleman BPS?")) {
+            $('#modalSumberKecamatan').modal('hide');
             $me('.overlay').show();
             MyApp.ajax({
                 option: 'ACTION', action: 'addKecamatanBps',
+                kode_data_pilah: curKode
+            }, function (resp) {
+                $me('.overlay').hide();
+                alert(resp.msg);
+                if (resp.success) {
+                    loadBaris();
+                    loadMatriks();
+                }
+            });
+        }
+    });
+
+    // Pilihan Kemendagri
+    $('#modalSumberKecamatan').off('click', '.btPilihKemendagri').on('click', '.btPilihKemendagri', function() {
+        if(confirm("Apakah Anda yakin ingin mengisi daftar baris secara otomatis dengan 17 Kecamatan Sleman KEMENDAGRI?")) {
+            $('#modalSumberKecamatan').modal('hide');
+            $me('.overlay').show();
+            MyApp.ajax({
+                option: 'ACTION', action: 'addKecamatanKemendagri',
                 kode_data_pilah: curKode
             }, function (resp) {
                 $me('.overlay').hide();

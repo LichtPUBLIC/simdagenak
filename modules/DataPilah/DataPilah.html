@@ -234,9 +234,9 @@
                             <span class="panel-title-text"><i class="fa fa-list-ul text-success"></i> DAFTAR
                                 BARIS</span>
                             <div style="display: flex; gap: 6px;">
-                                <button class="btn btn-xs btn-warning btTambahKecamatanBps"
+                                <button class="btn btn-xs btn-warning btTambahKecamatan"
                                     style="border-radius: 4px; padding: 3px 10px;" disabled>
-                                    <i class="fa fa-globe"></i> Gunakan 17 Kecamatan BPS
+                                    <i class="fa fa-globe"></i> Tambah Kecamatan
                                 </button>
                                 <button class="btn btn-xs btn-success btTambahBaris"
                                     style="border-radius: 4px; padding: 3px 10px;">
@@ -518,8 +518,32 @@
                         </thead>
                         <tbody>
                             <!-- Will be populated by JS -->
-                        </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Pilih Sumber Kecamatan -->
+<div class="modal fade" id="modalSumberKecamatan" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="width: 450px; margin-top: 10%;">
+        <div class="modal-content" style="border-radius: 12px; overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e466a 0%, #3276b1 100%); color: #fff; padding: 15px 20px;">
+                <button type="button" class="close" data-dismiss="modal" style="color: #fff; opacity: 0.8;">&times;</button>
+                <h4 class="modal-title" style="font-weight: 600; color: #fff;"><i class="fa fa-globe"></i> Pilih Sumber Kecamatan</h4>
+            </div>
+            <div class="modal-body" style="padding: 25px 20px; text-align: center;">
+                <p class="text-muted" style="margin-bottom: 20px; font-size: 13px;">Pilih standar format pengurutan wilayah 17 Kecamatan Sleman yang ingin digunakan:</p>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <button class="btn btn-primary btn-block btn-lg btPilihBps" style="border-radius: 8px; font-weight: 600; padding: 12px; font-size: 14px; text-align: left; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <span><i class="fa fa-bar-chart"></i> Standar BPS (Moyudan, Minggir...)</span>
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    <button class="btn btn-warning btn-block btn-lg btPilihKemendagri" style="border-radius: 8px; font-weight: 600; padding: 12px; font-size: 14px; text-align: left; display: flex; align-items: center; justify-content: space-between; margin-bottom: 0;">
+                        <span><i class="fa fa-building-o"></i> Standar KEMENDAGRI (Gamping, Godean...)</span>
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
