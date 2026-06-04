@@ -405,17 +405,22 @@
             if (!resp.success) return;
             var tbody = '';
             $.each(resp.data, function (i, k) {
+                var isJumlah = (typeof k.tipe_kolom === 'string' && k.tipe_kolom.toLowerCase() === 'jumlah')
+                    || (typeof k.tipe_kolom === 'string' && k.tipe_kolom.indexOf('+') > -1);
+                var tipeText = isJumlah ? 'Jumlah (Auto-Sum)' : 'Biasa';
+                var tipeColor = isJumlah ? '#e67e22' : '#3498db';
                 tbody += '<tr>' +
                     '<td>' + (i + 1) + '</td>' +
                     '<td>' + k.kode_kolom + '</td>' +
                     '<td>' + k.nama_kolom + '</td>' +
                     '<td>' + (k.header_kolom || '-') + '</td>' +
+                    '<td><span class="badge" style="background-color: ' + tipeColor + '; color: #fff; font-size: 10px;">' + tipeText + '</span></td>' +
                     '<td><button class="btn-action-delete btHapusKolom" data-id="' + k.id_data_pilah_kolom + '" data-nama="' + k.nama_kolom + '" title="Hapus">' +
                     '<i class="fa fa-trash-o"></i></button></td>' +
                     '</tr>';
             });
             if (resp.data.length === 0) {
-                tbody = '<tr><td colspan="5" class="text-center text-muted">Belum ada kolom</td></tr>';
+                tbody = '<tr><td colspan="6" class="text-center text-muted">Belum ada kolom</td></tr>';
             }
             $me('#tabelKolom tbody').html(tbody);
         });
@@ -489,23 +494,106 @@
             $me('#matriksEmpty').hide();
             $me('#matriksTable').show();
 
-            // Build header
-            var html = '<thead><tr>';
-            html += '<th style="width:40px;">No</th>';
-            html += '<th style="min-width:140px;">' + curHeaderBaris + '</th>';
-            $.each(kolom, function (i, k) {
-                html += '<th>' + (k.header_kolom || k.nama_kolom) + '</th>';
-            });
-            html += '</tr></thead>';
+            // Build header (2-baris dengan rowspan/colspan)
+            var th1 = '<th rowspan="2" style="width:40px;">No</th>';
+            th1 += '<th rowspan="2" style="min-width:140px;">' + curHeaderBaris + '</th>';
+            var th2 = '';
 
-            // Build body
+            // Grouping columns sequentially
+            var kolomGroups = [];
+            var currentGroup = null;
+            $.each(kolom, function (i, k) {
+                var hdr = k.header_kolom ? k.header_kolom.trim() : '';
+                if (hdr === '-' || hdr === '0') {
+                    hdr = '';
+                }
+                var name = k.nama_kolom ? k.nama_kolom.trim() : '';
+                
+                if (currentGroup === null || currentGroup.header !== hdr || hdr === '') {
+                    currentGroup = {
+                        header: hdr,
+                        cols: []
+                    };
+                    kolomGroups.push(currentGroup);
+                }
+                currentGroup.cols.push({
+                    kode: k.kode_kolom,
+                    nama: name
+                });
+            });
+
+            $.each(kolomGroups, function (gi, group) {
+                if (group.header !== '') {
+                    th1 += '<th colspan="' + group.cols.length + '">' + group.header + '</th>';
+                    $.each(group.cols, function (ci, col) {
+                        th2 += '<th>' + (col.nama || '-') + '</th>';
+                    });
+                } else {
+                    var col = group.cols[0];
+                    th1 += '<th rowspan="2">' + (col.nama || col.header || '-') + '</th>';
+                }
+            });
+
+            var html = '<thead><tr>' + th1 + '</tr>';
+            if (th2 !== '') {
+                html += '<tr>' + th2 + '</tr>';
+            }
+            html += '</thead>';
+
+            // Prepare helper maps for auto-sum and formula parsing
+            var nameToIndex = {};
+            var headerMap = {};
+            $.each(kolom, function (i, k) {
+                var nm = (k.nama_kolom || '').toString().trim().toLowerCase();
+                if (nm !== '') nameToIndex[nm] = i;
+                var hdr = (k.header_kolom || '').toString().trim();
+                headerMap[hdr] = headerMap[hdr] || [];
+                headerMap[hdr].push(i);
+            });
+
+            // Build body with support for auto-sum and formula (e.g. "L+P")
             html += '<tbody>';
             $.each(baris, function (bi, b) {
                 html += '<tr>';
                 html += '<td class="text-center">' + (b.no_urut || (bi + 1)) + '</td>';
                 html += '<td>' + b.nama_baris + '</td>';
                 $.each(b.cells, function (ci, c) {
-                    html += '<td class="text-right">' + (c.val !== null && c.val !== '' ? c.val : '-') + '</td>';
+                    var col = kolom[ci] || {};
+                    var rawVal = (c && c.val !== null && c.val !== '') ? c.val : null;
+                    var display = '-';
+
+                    if (col.tipe_kolom && typeof col.tipe_kolom === 'string' && col.tipe_kolom.indexOf('+') > -1) {
+                        // Formula like "L+P" — sum columns by name
+                        var tokens = col.tipe_kolom.split('+');
+                        var sum = 0;
+                        var any = false;
+                        $.each(tokens, function (ti, tok) {
+                            var key = tok.toString().trim().toLowerCase();
+                            var idx = nameToIndex[key];
+                            if (typeof idx !== 'undefined') {
+                                var cv = (b.cells[idx] && b.cells[idx].val) ? b.cells[idx].val : null;
+                                var num = parseFloat(String(cv || '').replace(/,/g, ''));
+                                if (!isNaN(num)) { sum += num; any = true; }
+                            }
+                        });
+                        display = any ? sum : '-';
+                    } else if (col.tipe_kolom && typeof col.tipe_kolom === 'string' && col.tipe_kolom.toLowerCase() === 'jumlah') {
+                        // 'jumlah' — sum all numeric columns within the same header group
+                        var hdr = (col.header_kolom || '').toString().trim();
+                        var indices = headerMap[hdr] || [];
+                        var sum2 = 0;
+                        var any2 = false;
+                        $.each(indices, function (ii, idx2) {
+                            var cv = (b.cells[idx2] && b.cells[idx2].val) ? b.cells[idx2].val : null;
+                            var num = parseFloat(String(cv || '').replace(/,/g, ''));
+                            if (!isNaN(num)) { sum2 += num; any2 = true; }
+                        });
+                        display = any2 ? sum2 : '-';
+                    } else {
+                        display = rawVal !== null ? rawVal : '-';
+                    }
+
+                    html += '<td class="text-right">' + display + '</td>';
                 });
                 html += '</tr>';
             });

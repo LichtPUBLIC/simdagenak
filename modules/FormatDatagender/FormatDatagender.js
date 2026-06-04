@@ -150,17 +150,45 @@
             var colspantahun = 0;
             var kolomChild = "";
             var kolomParent = "";
-            $.each(resp.kolomHead, function (index, val) {
-                if(index !==0){
-                    kolomParent+="<th class='th-format' colspan='"+val.length+"'>"+index+"</th>";
+
+            // Grouping columns sequentially
+            var kolomGroups = [];
+            var currentGroup = null;
+            $.each(resp.koloms_raw, function (i, k) {
+                var hdr = k.header_kolom ? k.header_kolom.trim() : '';
+                if (hdr === '-' || hdr === '0') {
+                    hdr = '';
                 }
+                var name = k.nama_kolom ? k.nama_kolom.trim() : '';
+                var tipe = k.tipe_kolom ? k.tipe_kolom.trim() : '';
+                
+                if (currentGroup === null || currentGroup.header !== hdr || hdr === '') {
+                    currentGroup = {
+                        header: hdr,
+                        cols: []
+                    };
+                    kolomGroups.push(currentGroup);
+                }
+                currentGroup.cols.push({
+                    kode: k.kode_kolom,
+                    nama: name,
+                    tipe: tipe
+                });
+                colspantahun++;
+            });
 
-                $.each(val,function (idx, child) {
-                    kolomChild+="<th class='th-format'>"+child+"</th>";
-                    colspantahun++;
-                })
+            $.each(kolomGroups, function (gi, group) {
+                if (group.header !== '') {
+                    kolomParent += "<th class='th-format' colspan='" + group.cols.length + "'>" + group.header + "</th>";
+                    $.each(group.cols, function (ci, col) {
+                        kolomChild += "<th class='th-format'>" + (col.nama || '-') + "</th>";
+                    });
+                } else {
+                    var col = group.cols[0];
+                    kolomParent += "<th class='th-format' rowspan='2'>" + (col.nama || col.header || '-') + "</th>";
+                }
+            });
 
-            })
             var kolomHeader = "<tr><th class='th-format' rowspan='3'>No</th><th class='th-format' rowspan='3'>" +
                 MyApp.$me.dataRowFormat.header_baris +
                                 "</th><th class='th-format' colspan='"+colspantahun+"'>"+curtahun+"</th></tr>" +
@@ -181,12 +209,12 @@
                             MyApp.$me.namabaris = record;
                             td +="<th style='text-align: left;'>"+record+"</th>";
                         }else{
-                            indexKolom = i.substring(0,5);
+                            indexKolom = i.substring(0, i.lastIndexOf('_'));
                             var colObj = MyApp.$me.kolom[indexKolom];
                             if(colObj){
                                 var colName = colObj.nama;
                                 var colHeader = colObj.header || '';
-                                var isTotalCol = (colName === 'L+P' || colName.toLowerCase() === 'jumlah');
+                                var isTotalCol = (colObj.tipe === 'jumlah');
                                 var safeHeader = btoa(unescape(encodeURIComponent(colHeader))).replace(/=/g, '');
                                 
                                 if(isTotalCol){

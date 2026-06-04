@@ -405,20 +405,24 @@ class DataPilah extends Database
         // 2. Identify sum columns and group columns by header_kolom
         $groups = array();
         foreach ($koloms as $k) {
-            $header = strtolower(trim($k->header_kolom ?? ''));
-            if (!isset($groups[$header])) {
-                $groups[$header] = array(
+            $header = trim($k->header_kolom ?? '');
+            if ($header === '-' || $header === '0') {
+                $header = '';
+            }
+            $headerKey = strtolower($header);
+            
+            if (!isset($groups[$headerKey])) {
+                $groups[$headerKey] = array(
                     'jumlah_cols' => array(),
                     'regular_cols' => array()
                 );
             }
             
-            $name = strtolower(trim($k->nama_kolom ?? ''));
-            if ($name === 'jumlah' || $name === 'total' || $name === 'l+p' || $name === 'jml' || $name === 'l + p' ||
-                $header === 'jumlah' || $header === 'total' || $header === 'l+p' || $header === 'jml' || $header === 'l + p') {
-                $groups[$header]['jumlah_cols'][] = $k;
+            $tipe = strtolower(trim($k->tipe_kolom ?? ''));
+            if ($tipe === 'jumlah') {
+                $groups[$headerKey]['jumlah_cols'][] = $k;
             } else {
-                $groups[$header]['regular_cols'][] = $k;
+                $groups[$headerKey]['regular_cols'][] = $k;
             }
         }
         

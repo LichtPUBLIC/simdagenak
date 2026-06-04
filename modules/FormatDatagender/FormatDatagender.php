@@ -336,7 +336,8 @@ class FormatDatagender extends Database
             foreach ($koloms as $val){
                 $namaKolomArr[str_replace(".","_",$val->kode_kolom)] = array(
                     'nama' => $val->nama_kolom,
-                    'header' => $val->header_kolom ? $val->header_kolom : ''
+                    'header' => $val->header_kolom ? $val->header_kolom : '',
+                    'tipe' => $val->tipe_kolom ? $val->tipe_kolom : ''
                 );
                 if($val->header_kolom){
                     if($curHeader != $val->header_kolom){
@@ -379,6 +380,7 @@ class FormatDatagender extends Database
         $result['kolom'] = $namaKolomArr;
 //        $result['kolomParent'] = $kolomParentHead;
         $result['kolomHead'] = $kolomHead;
+        $result['koloms_raw'] = $koloms;
         $result['success']=true;
         $result['result']=$data;
         print_r(json_encode($result));

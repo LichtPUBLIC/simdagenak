@@ -279,6 +279,7 @@
                                         <th width="80">Kode</th>
                                         <th>Nama Kolom</th>
                                         <th>Header</th>
+                                        <th>Tipe</th>
                                         <th width="50">Aksi</th>
                                     </tr>
                                 </thead>
@@ -460,20 +461,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Nama Kolom</label>
-                        <div class="col-md-9"><input type="text" class="form-control" name="nama_kolom"
-                                placeholder="Contoh: Jumlah Penduduk"></div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-3 control-label">Header Kolom</label>
                         <div class="col-md-9"><input type="text" class="form-control" name="header_kolom"
-                                placeholder="Header di tabel matriks"></div>
+                                placeholder="Contoh: Jumlah Penduduk (Kosongkan jika kolom berdiri sendiri seperti Keterangan)"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Nama Kolom</label>
+                        <div class="col-md-9"><input type="text" class="form-control" name="nama_kolom"
+                                placeholder="Contoh: Laki-laki (L) atau Perempuan (P)"></div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Tipe Kolom</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="tipe_kolom"
-                                placeholder="Contoh: LP, Jumlah, dsb">
+                            <input type="text" class="form-control" name="tipe_kolom" id="tipe_kolom_input"
+                                placeholder="Contoh: biasa, jumlah, L+P (ketik formula atau 'jumlah')">
                         </div>
                     </div>
                     <div class="form-group">
