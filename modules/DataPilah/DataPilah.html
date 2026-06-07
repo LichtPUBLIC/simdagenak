@@ -1,168 +1,31 @@
 <style>
     .dp-section {
         display: none;
-        transition: all 0.3s ease;
     }
 
     .dp-section.active {
         display: block;
-        animation: fadeIn 0.4s;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Premium Header */
-    .detail-card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
-        border: none;
-        overflow: hidden;
-    }
-
-    .detail-header-premium {
-        background: linear-gradient(135deg, #1e466a 0%, #3276b1 100%);
-        color: #fff;
-        padding: 20px 25px;
-        position: relative;
-    }
-
-    .detail-header-premium h3 {
-        margin: 0 0 5px 0;
-        font-weight: 700;
-        font-size: 20px;
-        letter-spacing: -0.5px;
-    }
-
-    .detail-header-premium .badge-kode {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 12px;
-    }
-
-    /* Table Improvements */
-    .table-modern {
-        border-collapse: separate;
-        border-spacing: 0;
-        width: 100%;
-    }
-
-    .table-modern thead th {
-        background: #f8f9fb;
-        color: #555;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 11px;
-        padding: 12px 15px;
-        border-bottom: 2px solid #edf0f2;
-    }
-
-    .table-modern tbody td {
-        padding: 10px 15px;
-        border-bottom: 1px solid #f0f2f5;
-        vertical-align: middle;
-    }
-
-    .table-modern tbody tr:hover {
-        background: #f4f8fb;
-    }
-
-    /* Action Buttons */
-    .btn-action-delete {
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
-        border: none;
-        background: #fff0f0;
-        color: #d9534f;
-        transition: all 0.2s;
-    }
-
-    .btn-action-delete:hover {
-        background: #d9534f;
-        color: #fff;
-        transform: scale(1.1);
-    }
-
-    /* Matriks Table Styles */
-    #matriksTable {
-        width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-    }
-
-    #matriksTable th {
-        background: #4c5667;
-        color: #fff;
-        padding: 10px;
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid #3e4755;
-        text-align: center;
-    }
-
-    #matriksTable td {
-        border: 1px solid #e0e0e0;
-        padding: 0;
     }
 
     #matriksTable td.cell-nama {
-        padding: 8px 12px;
-        background: #fcfcfc;
-        font-weight: 500;
-        font-size: 13px;
         width: 300px;
     }
 
     #matriksTable td.cell-no {
         text-align: center;
         width: 40px;
-        background: #f5f5f5;
-        color: #777;
-        font-size: 11px;
     }
 
     #matriksTable input.cell-input {
         width: 100%;
-        border: none;
-        padding: 8px;
+        border: 1px solid transparent;
+        padding: 4px;
         text-align: right;
-        font-family: 'Consolas', monospace;
-        font-size: 13px;
-        background: transparent;
     }
 
     #matriksTable input.cell-input:focus {
-        background: #fffde7;
-        outline: 2px solid #ffb300;
-    }
-
-    /* Custom Toolbar */
-    .custom-toolbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 15px;
-        background: #fdfdfd;
-        border-bottom: 1px solid #eee;
-    }
-
-    .panel-title-text {
-        font-size: 14px;
-        font-weight: 600;
-        color: #444;
+        border: 1px solid #ccc;
+        outline: none;
     }
 </style>
 
@@ -209,113 +72,115 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- SECTION 2: DETAIL MATRIKS (RE-DESIGNED)                      -->
+        <!-- ============================================================ -->
+    <!-- SECTION 2: DETAIL MATRIKS (STANDARD UI)                      -->
     <!-- ============================================================ -->
     <div id="sectionDetail" class="dp-section">
         <div style="margin-bottom: 15px;">
-            <button class="btn btn-sm btn-default btKembali" style="border-radius: 20px; padding: 5px 15px;">
+            <button class="btn btn-default btKembali">
                 <i class="fa fa-chevron-left"></i> Kembali ke Daftar
             </button>
         </div>
 
-        <!-- Header Card -->
-        <div class="detail-card">
-            <div class="detail-header-premium">
-                <h3 id="detailJudul">Memuat Data...</h3>
-                <span class="badge-kode" id="detailKode">Kode: —</span>
-            </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2 id="detailJudul">Memuat Data...</h2>
+                        <div class="widget-toolbar" id="detailKode">Kode: —</div>
+                    </header>
+                    <div>
+                        <div class="widget-body">
+                            <div class="row">
+                                <!-- Panel Baris -->
+                                <div class="col-md-6">
+                                    <h4 class="alert alert-info"><i class="fa fa-list-ul"></i> DAFTAR BARIS
+                                        <div class="pull-right">
+                                            <button class="btn btn-xs btn-warning btTambahKecamatan" disabled>
+                                                <i class="fa fa-globe"></i> Tambah Kecamatan
+                                            </button>
+                                            <button class="btn btn-xs btn-success btTambahBaris">
+                                                <i class="fa fa-plus"></i> Tambah Baris
+                                            </button>
+                                        </div>
+                                    </h4>
+                                    <div class="table-responsive" style="max-height: 350px; overflow-y: auto;">
+                                        <table class="table table-striped table-bordered table-hover" id="tabelBaris">
+                                            <thead>
+                                                <tr>
+                                                    <th width="40">#</th>
+                                                    <th width="80">Kode</th>
+                                                    <th>Nama Baris</th>
+                                                    <th width="50">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-            <div class="row" style="padding: 20px;">
-                <!-- Panel Baris -->
-                <div class="col-md-6">
-                    <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
-                        <div class="custom-toolbar">
-                            <span class="panel-title-text"><i class="fa fa-list-ul text-success"></i> DAFTAR
-                                BARIS</span>
-                            <div style="display: flex; gap: 6px;">
-                                <button class="btn btn-xs btn-warning btTambahKecamatan"
-                                    style="border-radius: 4px; padding: 3px 10px;" disabled>
-                                    <i class="fa fa-globe"></i> Tambah Kecamatan
-                                </button>
-                                <button class="btn btn-xs btn-success btTambahBaris"
-                                    style="border-radius: 4px; padding: 3px 10px;">
-                                    <i class="fa fa-plus"></i> Tambah Baris
-                                </button>
+                                <!-- Panel Kolom -->
+                                <div class="col-md-6">
+                                    <h4 class="alert alert-info"><i class="fa fa-columns"></i> DAFTAR KOLOM
+                                        <div class="pull-right">
+                                            <button class="btn btn-xs btn-primary btTambahKolom">
+                                                <i class="fa fa-plus"></i> Tambah Kolom
+                                            </button>
+                                        </div>
+                                    </h4>
+                                    <div class="table-responsive" style="max-height: 350px; overflow-y: auto;">
+                                        <table class="table table-striped table-bordered table-hover" id="tabelKolom">
+                                            <thead>
+                                                <tr>
+                                                    <th width="40">#</th>
+                                                    <th width="80">Kode</th>
+                                                    <th>Nama Kolom</th>
+                                                    <th>Header</th>
+                                                    <th>Tipe</th>
+                                                    <th width="50">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div style="max-height: 350px; overflow-y: auto;">
-                            <table class="table-modern" id="tabelBaris">
-                                <thead>
-                                    <tr>
-                                        <th width="40">#</th>
-                                        <th width="80">Kode</th>
-                                        <th>Nama Baris</th>
-                                        <th width="50">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Panel Kolom -->
-                <div class="col-md-6">
-                    <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
-                        <div class="custom-toolbar">
-                            <span class="panel-title-text"><i class="fa fa-columns text-primary"></i> DAFTAR
-                                KOLOM</span>
-                            <button class="btn btn-xs btn-primary btTambahKolom"
-                                style="border-radius: 4px; padding: 3px 10px;">
-                                <i class="fa fa-plus"></i> Tambah Kolom
-                            </button>
-                        </div>
-                        <div style="max-height: 350px; overflow-y: auto;">
-                            <table class="table-modern" id="tabelKolom">
-                                <thead>
-                                    <tr>
-                                        <th width="40">#</th>
-                                        <th width="80">Kode</th>
-                                        <th>Nama Kolom</th>
-                                        <th>Header</th>
-                                        <th>Tipe</th>
-                                        <th width="50">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Preview Matriks Card -->
-        <div class="detail-card">
-            <div class="custom-toolbar" style="background: #f8f9fb; padding: 12px 20px;">
-                <span class="panel-title-text"><i class="fa fa-th-large text-danger"></i> PREVIEW MATRIKS</span>
-                <div style="display: flex; gap: 8px;">
-                    <select id="cbTahunMatriks" class="form-control input-sm"
-                        style="width: 100px; border-radius: 4px;"></select>
-                    <button class="btn btn-sm btn-warning btRefreshMatriks" style="border-radius: 4px;"
-                        title="Refresh Data">
-                        <i class="fa fa-refresh"></i>
-                    </button>
+        <!-- Preview Matriks Widget -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-th-large"></i> </span>
+                        <h2>PREVIEW MATRIKS</h2>
+                        <div class="widget-toolbar">
+                            <select id="cbTahunMatriks" class="form-control input-sm" style="display:inline-block; width:auto; height:24px; padding:2px 5px;"></select>
+                            <button class="btn btn-xs btn-warning btRefreshMatriks" title="Refresh Data">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                        </div>
+                    </header>
+                    <div>
+                        <div class="widget-body">
+                            <div class="table-responsive" id="matriksContainer">
+                                <div class="text-center" id="matriksEmpty" style="padding: 40px 0;">
+                                    <i class="fa fa-table" style="font-size: 40px; color: #eee; margin-bottom: 15px; display: block;"></i>
+                                    <p class="text-muted">Data matriks belum tersedia. Silakan tambahkan baris dan kolom terlebih dahulu.</p>
+                                </div>
+                                <table id="matriksTable" class="table table-bordered table-striped table-hover" style="display:none;"></table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div style="padding: 20px; overflow-x: auto;" id="matriksContainer">
-                <div class="text-center" id="matriksEmpty" style="padding: 40px 0;">
-                    <i class="fa fa-table"
-                        style="font-size: 40px; color: #eee; margin-bottom: 15px; display: block;"></i>
-                    <p class="text-muted">Data matriks belum tersedia. Silakan tambahkan baris dan kolom terlebih
-                        dahulu.</p>
-                </div>
-                <table id="matriksTable" style="display:none;"></table>
             </div>
         </div>
     </div>
-</div>
 
 <!-- ============================================================ -->
 <!-- MODAL: TAMBAH/EDIT DATA PILAH (header)                       -->
